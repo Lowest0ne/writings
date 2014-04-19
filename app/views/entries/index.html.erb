@@ -1,0 +1,6 @@
+<h1>All the entries</h1>
+<ul>
+<% @entries.each do | entry | %>
+  <li><%= link_to entry.title, entry_path( entry ) %></li>
+<% end %>
+</ul>
