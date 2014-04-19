@@ -31,3 +31,4 @@ gem 'jquery-rails'
 # gem 'debugger', group: [:development, :test]
 
 gem 'make_secret'
+gem 'devise'
