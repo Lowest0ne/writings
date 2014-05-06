@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :find_book, only: [ :show, :edit, :update, :destroy ]
+  before_action :find_entries, only: [ :show ]
   before_action :authenticate_admin!, only: [:new, :create, :edit, :update, :destroy ]
 
   def new
@@ -45,6 +46,10 @@ class BooksController < ApplicationController
 
   def find_book
     @book = Book.find( params[:id] )
+  end
+
+  def find_entries
+    @entries = @book.entries
   end
 
 end

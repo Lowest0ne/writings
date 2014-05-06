@@ -7,6 +7,9 @@ class Entry < ActiveRecord::Base
   has_many :entry_categories, dependent: :destroy
   has_many :categories, through: :entry_categories
 
+  belongs_to :book
+  validates_presence_of :book
+
   def date
     Writings::Date.new( year, month, day ).to_s
   end

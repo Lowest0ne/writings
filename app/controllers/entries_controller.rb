@@ -1,5 +1,6 @@
 class EntriesController < ApplicationController
   before_action :find_entry, only: [ :show, :edit, :update, :destroy ]
+  before_action :find_book, only: [ :new, :create, :index ]
   before_action :authenticate_admin!, only: [:new, :create, :edit, :update, :destroy ]
 
   def new
@@ -7,7 +8,7 @@ class EntriesController < ApplicationController
   end
 
   def create
-    @entry  = Entry.new( entry_params )
+    @entry  = @book.entries.new( entry_params )
     if @entry.save
       redirect_to entry_path( @entry ), notice: 'Entry Created'
     else
@@ -19,7 +20,7 @@ class EntriesController < ApplicationController
   end
 
   def index
-    @entries = Entry.all
+    @entries = @book ? @book.entries : Entry.all
   end
 
   def edit
@@ -45,6 +46,12 @@ class EntriesController < ApplicationController
 
   def find_entry
     @entry = Entry.find( params[:id] )
+  end
+
+  def find_book
+    @book = Book.find( params[ :book_id ] )
+  rescue
+    @book = nil
   end
 
 end

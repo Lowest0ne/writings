@@ -1,6 +1,15 @@
 <%= content_tag :h1, @book.title %>
 <%= content_tag :h2, sanitize( @book.about ) %>
 
+<ul>
+  <% @entries.each do | entry | %>
+    <li><%= link_to entry.title, entry_path( entry ) %></li>
+  <% end %>
+</ul>
+
+
 <%= link_to 'Books', books_path %>
+
+<%= link_to 'Add Entry', new_book_entry_path( @book ) %>
 <%= link_to 'Edit', edit_book_path( @book ) %>
 <%= link_to 'Destroy', book_path( @book ), method: :delete %>
