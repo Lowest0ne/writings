@@ -3,16 +3,14 @@
   <th>Title</th>
   <th>Date</th>
   <th>Book</th>
-  <th>Options</th>
+  <%= content_tag( :th, 'Options' ) if current_admin %>
   <% @entries.each do | entry | %>
     <tr>
       <td><%= link_to entry.title, entry_path( entry ) %></td>
       <td><%= entry.date  %></td>
       <td><%= link_to entry.book.title, book_path( entry ) %></td>
-      <td><%= link_to 'Edit', edit_entry_path( entry ) %><br>
-          <%= link_to 'Destroy', entry_path( entry ), method: :delete %>
-      </td>
+      <%= content_tag( :td, edit_destroy_links( entry ) ) if current_admin %>
     </tr>
   <% end %>
 </table>
-<%= link_to( 'Create Entry', new_book_entry_path( @book ) ) if @book %>
+<%= link_to( 'Create Entry', new_book_entry_path( @book ) ) if @book && current_admin %>

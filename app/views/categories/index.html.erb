@@ -1,14 +1,12 @@
 <h1>All the Categories</h1>
 <table>
   <th>Name</th>
-  <th>Options</th>
+  <%= content_tag( :th, 'Options' ) if current_admin %>
   <% @categories.each do | category | %>
     <tr>
       <td><%= link_to category.name, category_path( category ) %></td>
-      <td><%= link_to 'Edit', edit_category_path( category ) %><br>
-          <%= link_to 'Destroy', category_path( category ), method: :delete %>
-      </td>
+      <%= content_tag( :td, edit_destroy_links( category ) ) if current_admin %>
     </tr>
   <% end %>
 </table>
-<%= link_to 'Create Category', new_category_path %>
+<%= link_to( 'Create Category', new_category_path ) if current_admin %>

@@ -7,9 +7,4 @@
   <% end %>
 </ul>
 
-
-<%= link_to 'Books', books_path %>
-
-<%= link_to 'Add Entry', new_book_entry_path( @book ) %>
-<%= link_to 'Edit', edit_book_path( @book ) %>
-<%= link_to 'Destroy', book_path( @book ), method: :delete %>
+<%= admin_show_options %>

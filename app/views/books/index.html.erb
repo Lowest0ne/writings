@@ -2,15 +2,13 @@
 <table>
   <th>Title</th>
   <th>About</th>
-  <th>Options</th>
+  <%= content_tag( :th, 'Options' ) if current_admin %>
   <% @books.each do | book | %>
     <tr>
       <td><%= link_to book.title, book_path( book ) %></td>
       <td><%= sanitize( book.about )  %></td>
-      <td><%= link_to 'Edit', edit_book_path( book ) %><br>
-          <%= link_to 'Destroy', book_path( book ), method: :delete %>
-      </td>
+      <%= content_tag(:td, edit_destroy_links( book )) if current_admin %>
     </tr>
   <% end %>
 </table>
-<%= link_to 'Create Book', new_book_path %>
+<%= link_to( 'Create Book', new_book_path ) if current_admin %>

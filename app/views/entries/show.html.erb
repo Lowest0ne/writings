@@ -10,5 +10,4 @@
 
 <%= link_to @entry.book.title, book_path( @entry.book ) %>
 <%= link_to 'Entries', entries_path %>
-<%= link_to 'Edit', edit_entry_path( @entry ) %>
-<%= link_to 'Destroy', entry_path( @entry ), method: :delete %>
+<%= edit_destroy_links( @entry ) %>

@@ -2,20 +2,32 @@
 <html>
 <head>
   <title>Writings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<% if current_admin %>
-  <%= link_to 'Sign Out', destroy_admin_session_path, method: :delete %>
-<% else %>
-  <%= link_to 'admin?', new_admin_session_path %>
-<% end %>
+<nav>
+  <h1><%= link_to 'Writings', root_path %></h1>
+  <%= link_list(
+        'Books'      => { url: books_path },
+        'Entries'    => { url: entries_path },
+        'Categories' => { url: categories_path }) %>
+</nav>
+
 <%= content_tag :p, notice, class: 'notice' %>
 <%= content_tag :p, alert, class: 'alert' %>
 <%= yield %>
+
+<footer>
+  <% if current_admin %>
+    <%= link_to 'Sign Out', destroy_admin_session_path, method: :delete %>
+  <% else %>
+    <%= link_to 'admin?', new_admin_session_path %>
+  <% end %>
+</footer>
 
 </body>
 </html>
