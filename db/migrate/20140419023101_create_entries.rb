@@ -3,7 +3,9 @@ class CreateEntries < ActiveRecord::Migration
     create_table :entries do |t|
       t.text :contents, null: false
       t.string :title, null: false, default: 'Untitled'
-      t.date :date
+      t.integer :year
+      t.integer :month
+      t.integer :day
 
       t.timestamps
     end

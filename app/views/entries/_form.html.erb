@@ -1,0 +1,18 @@
+<% if @entry.errors.any? %>
+  <div class='error_message'>
+    <ul>
+      <% @entry.errors.full_messages.each do | message | %>
+        <p><%= message %></p>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @entry do | form | %>
+  <%= form.text_field :title %>
+  <%= form.number_field :year %>
+  <%= form.number_field :month %>
+  <%= form.number_field :day   %>
+  <%= form.text_area :contents %>
+  <%= form.submit %>
+<% end %>

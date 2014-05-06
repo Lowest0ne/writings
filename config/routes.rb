@@ -1,4 +1,5 @@
 Writings::Application.routes.draw do
+  devise_for :admins
   resources :entries
 
   root 'entries#index'

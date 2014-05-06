@@ -1,6 +1,16 @@
 <h1>All the entries</h1>
-<ul>
-<% @entries.each do | entry | %>
-  <li><%= link_to entry.title, entry_path( entry ) %></li>
-<% end %>
-</ul>
+<table>
+  <th>Title</th>
+  <th>Date</th>
+  <th>Options</th>
+  <% @entries.each do | entry | %>
+    <tr>
+      <td><%= link_to entry.title, entry_path( entry ) %></td>
+      <td><%= entry.date  %></td>
+      <td><%= link_to 'Edit', edit_entry_path( entry ) %><br>
+          <%= link_to 'Destroy', entry_path( entry ), method: :delete %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to 'Create Entry', new_entry_path %>

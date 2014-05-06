@@ -32,3 +32,7 @@ gem 'jquery-rails'
 
 gem 'make_secret'
 gem 'devise'
+
+group :test, :development do
+  gem 'pry-rails'
+end
