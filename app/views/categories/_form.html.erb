@@ -1,0 +1,14 @@
+<% if @category.errors.any? %>
+  <div class='error_message'>
+    <ul>
+      <% @category.errors.full_messages.each do | message | %>
+        <p><%= message %></p>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @category do | form | %>
+  <%= form.text_field :name %>
+  <%= form.submit %>
+<% end %>

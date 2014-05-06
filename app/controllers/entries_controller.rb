@@ -40,7 +40,7 @@ class EntriesController < ApplicationController
 
   protected
   def entry_params
-    params.require(:entry).permit( :title, :contents, :year, :month, :day )
+    params.require(:entry).permit( :title, :contents, :year, :month, :day, category_ids: [] )
   end
 
   def find_entry

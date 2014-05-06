@@ -14,5 +14,6 @@
   <%= form.number_field :month %>
   <%= form.number_field :day   %>
   <%= form.text_area :contents %>
+  <%= form.collection_check_boxes(:category_ids, Category.all, :id, :name ) %>
   <%= form.submit %>
 <% end %>
