@@ -2,6 +2,7 @@ Writings::Application.routes.draw do
   devise_for :admins
   resources :entries
   resources :categories
+  resources :books
 
   root 'entries#index'
   # The priority is based upon order of creation: first created -> highest priority.

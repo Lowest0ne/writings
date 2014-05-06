@@ -1,0 +1,6 @@
+<%= content_tag :h1, @book.title %>
+<%= content_tag :h2, sanitize( @book.about ) %>
+
+<%= link_to 'Books', books_path %>
+<%= link_to 'Edit', edit_book_path( @book ) %>
+<%= link_to 'Destroy', book_path( @book ), method: :delete %>

@@ -1,0 +1,15 @@
+<% if @book.errors.any? %>
+  <div class='error_message'>
+    <ul>
+      <% @book.errors.full_messages.each do | message | %>
+        <p><%= message %></p>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @book do | form | %>
+  <%= form.text_field :title %>
+  <%= form.text_area :about %>
+  <%= form.submit %>
+<% end %>
