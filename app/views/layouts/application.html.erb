@@ -9,13 +9,13 @@
 </head>
 <body>
 
-<nav>
+<div class='nav'>
   <h1><%= link_to 'Writings', root_path %></h1>
   <%= link_list(
         'Books'      => { url: books_path },
         'Entries'    => { url: entries_path },
         'Categories' => { url: categories_path }) %>
-</nav>
+</div>
 
 <%= content_tag :p, notice, class: 'notice' %>
 <%= content_tag :p, alert, class: 'alert' %>

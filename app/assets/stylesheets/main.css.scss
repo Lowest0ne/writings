@@ -1,0 +1,7 @@
+.nav {
+  border-bottom: 4px solid black;
+  @include linear-gradient(to top, #8fdce5, #3dc3d1);
+
+  h1 { margin: 0; }
+}
+
