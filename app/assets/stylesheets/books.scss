@@ -1,0 +1,17 @@
+.book_overview {
+  border: 1px solid black;
+  padding: 1em;
+  @include outer-container;
+
+  aside   { @include span-columns(3); }
+  article { @include span-columns(9); }
+
+  a {
+    &:link{ color: darkblue; }
+    &:visited { color: darkblue; }
+    &:hover { color: grey; }
+    &:active { color: orange; }
+
+    transition: color 0.1s;
+  }
+}

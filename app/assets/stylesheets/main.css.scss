@@ -66,12 +66,3 @@ form {
   max-width: 800px;
   margin: 1em auto 1em auto;
 }
-
-.book_overview {
-  border: 1px solid black;
-  padding: 1em;
-  @include outer-container;
-  aside { @include span-columns(3); }
-  article { @include span-columns(9); }
-
-}
