@@ -1,13 +1,22 @@
-<%= content_tag :h1, @entry.title %>
-<%= content_tag :h2, @entry.date %>
-<%= content_tag :div, sanitize( @entry.contents ) %>
+<%= link_list(
+      "Back to #{@entry.book.title}" => { url: book_path( @entry.book ) },
+      "All Entries" => { url: entries_path }
+)%>
 
-<ul>
-  <% @entry.categories.each do | category | %>
-    <li><%= link_to category.name, category_path( category ) %></li>
-  <% end %>
-</ul>
+<div class='entry'>
+  <%= content_tag :h1, @entry.title %>
+  <%= content_tag :h2, @entry.date %>
+  <%= content_tag :div, sanitize( @entry.contents ) %>
+</div>
 
-<%= link_to @entry.book.title, book_path( @entry.book ) %>
-<%= link_to 'Entries', entries_path %>
+
+<div class='entry_categories'>
+  <h3>Categories</h3>
+  <ul>
+    <% @entry.categories.each do | category | %>
+      <li><%= link_to category.name, category_path( category ) %></li>
+    <% end %>
+  </ul>
+</div>
+
 <%= edit_destroy_links( @entry ) %>
