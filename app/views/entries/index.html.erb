@@ -1,4 +1,3 @@
-<h1>All the entries</h1>
 <table>
   <th>Title</th>
   <th>Date</th>
@@ -8,7 +7,7 @@
     <tr>
       <td><%= link_to entry.title, entry_path( entry ) %></td>
       <td><%= entry.date  %></td>
-      <td><%= link_to entry.book.title, book_path( entry ) %></td>
+      <td><%= link_to entry.book.title, book_path( entry.book ) %></td>
       <%= content_tag( :td, edit_destroy_links( entry ) ) if current_admin %>
     </tr>
   <% end %>

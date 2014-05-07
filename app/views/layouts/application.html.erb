@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<div class='nav'>
+<div id='nav'>
   <h1><%= link_to 'Writings', root_path %></h1>
   <%= link_list(
         'Books'      => { url: books_path },
@@ -17,17 +17,19 @@
         'Categories' => { url: categories_path }) %>
 </div>
 
-<%= content_tag :p, notice, class: 'notice' %>
-<%= content_tag :p, alert, class: 'alert' %>
-<%= yield %>
+<div id='content'>
+  <%= content_tag :p, notice, class: 'notice' %>
+  <%= content_tag :p, alert, class: 'alert' %>
+  <%= yield %>
+</div>
 
-<footer>
+<div id='footer'>
   <% if current_admin %>
     <%= link_to 'Sign Out', destroy_admin_session_path, method: :delete %>
   <% else %>
     <%= link_to 'admin?', new_admin_session_path %>
   <% end %>
-</footer>
+</div>
 
 </body>
 </html>

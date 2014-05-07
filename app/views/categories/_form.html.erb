@@ -9,6 +9,7 @@
 <% end %>
 
 <%= form_for @category do | form | %>
+  <%= content_tag :p, title %>
   <%= form.text_field :name %>
   <%= form.submit %>
 <% end %>
