@@ -17,6 +17,8 @@ class EntriesController < ApplicationController
   end
 
   def show
+    @categories = Category.joins( :entry_categories ).where( "entry_categories.entry_id = #{@entry.id} " ).select( "name, categories.id " )
+    @category_class = @categories.first.name.downcase.gsub( / /, '_' ) if @categories.any?
   end
 
   def index

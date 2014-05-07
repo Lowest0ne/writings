@@ -16,6 +16,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @entries = Entry.joins( :entry_categories ).where( "entry_categories.category_id =  #{@category.id}" ).select( "title, year, month, day, entries.id" )
   end
 
   def index

@@ -1,8 +1,8 @@
 <%= content_tag :h1, @category.name %>
 
 <ul>
-  <% @category.entries.each do | entry | %>
-    <li><%= link_to entry.title, entry_path( entry ) %></li>
+  <% @entries.each do | entry | %>
+    <li><%= link_to(entry.title, entry_path( entry )) + ": #{entry.date}" %></li>
   <% end %>
 </ul>
 
