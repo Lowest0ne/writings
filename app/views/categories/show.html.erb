@@ -2,7 +2,7 @@
 
 <ul>
   <% @entries.each do | entry | %>
-    <li><%= link_to(entry.title, entry_path( entry )) + ": #{entry.date}" %></li>
+    <li><%= link_to("#{entry.title}: #{entry.date}", entry_path( entry )) %></li>
   <% end %>
 </ul>
 

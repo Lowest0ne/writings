@@ -37,8 +37,9 @@ class EntriesController < ApplicationController
   end
 
   def destroy
+    @book = @entry.book
     @entry.destroy
-    redirect_to entries_path, notice: 'Entry Destroyed'
+    redirect_to book_path( @book ) , notice: 'Entry Destroyed'
   end
 
   protected
