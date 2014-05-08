@@ -7,4 +7,8 @@ describe Book do
 
   it { should have_many( :entries ).dependent( :destroy ) }
 
+  it 'has a valid factory' do
+    FactoryGirl.build( :book ).should be_valid
+  end
+
 end

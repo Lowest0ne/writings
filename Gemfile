@@ -41,6 +41,7 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'valid_attribute'
+  gem 'factory_girl'
 end
 
 gem 'bourbon'
