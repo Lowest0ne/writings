@@ -38,6 +38,9 @@ gem 'devise'
 
 group :test, :development do
   gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'valid_attribute'
 end
 
 gem 'bourbon'
