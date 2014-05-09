@@ -18,6 +18,7 @@ class Entry < ActiveRecord::Base
 
   def replace_new_lines
     contents.gsub!( /\r\n/, "<br>" )
+    contents.gsub!( "</p><br>", "</p>" )
   end
 
 end
