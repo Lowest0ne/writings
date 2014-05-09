@@ -4,8 +4,10 @@
 )%>
 
 <div class='entry'>
-  <%= content_tag :h1, @entry.title %>
-  <%= content_tag :h3, @entry.date %>
+  <section class='title'>
+    <%= content_tag :aside, @entry.title %>
+    <%= content_tag :article, @entry.date %>
+  </section>
   <%= content_tag :div, sanitize( @entry.contents ), class: @category_class %>
 </div>
 

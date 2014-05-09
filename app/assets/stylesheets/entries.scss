@@ -2,6 +2,21 @@
   max-width: 800px;
   margin: auto;
   padding: 1em;
+
+  .title {
+    @include outer-container;
+    margin-bottom: 1em;
+    border-bottom: 1px solid black;
+
+    aside {
+      @include span-columns(9);
+      font-size: 2em;
+    }
+    article {
+      @include span-columns(3);
+      text-align: right;
+    }
+  }
 }
 
 .entry_categories {

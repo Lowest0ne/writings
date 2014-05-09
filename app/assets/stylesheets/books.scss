@@ -1,6 +1,7 @@
 .book_overview {
   border: 1px solid black;
   padding: 1em;
+
   @include outer-container;
 
   aside   { @include span-columns(3); }
