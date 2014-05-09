@@ -10,6 +10,9 @@ class EntriesController < ApplicationController
   def create
     @entry  = @book.entries.new( entry_params )
     if @entry.save
+      params[:entry][:category_ids][0...-1].each do | val |
+        EntryCategory.create( entry: @entry, category_id: val.to_i )
+      end
       redirect_to entry_path( @entry ), notice: 'Entry Created'
     else
       render :new
@@ -44,7 +47,7 @@ class EntriesController < ApplicationController
 
   protected
   def entry_params
-    params.require(:entry).permit( :title, :contents, :year, :month, :day, category_ids: [] )
+    params.require(:entry).permit( :title, :contents, :year, :month, :day )
   end
 
   def find_entry
