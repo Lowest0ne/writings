@@ -1,8 +1,3 @@
-<%= link_list(
-      "Back to #{@entry.book.title}" => { url: book_path( @entry.book ) },
-      "All Entries" => { url: entries_path }
-)%>
-
 <div class='entry'>
   <section class='title'>
     <%= content_tag :aside, @entry.title %>
@@ -11,14 +6,13 @@
   <%= content_tag :div, sanitize( @entry.contents ), class: @category_class %>
 </div>
 
+<ul>
+  <li><%= link_to "Back to #{@entry.book.title}", book_path( @entry.book ) %></li>
+  <% @categories.each do | category | %>
+    <li><%= link_to "Other #{ pluralize( 2, category.name ).split()[1..-1].join(' ') }", category_path( category ) %></li>
+  <% end %>
+  <li><%= link_to "All Entries", entries_path %></li>
+</ul>
 
-<div class='entry_categories'>
-  <h3>Categories</h3>
-  <ul>
-    <% @categories.each do | category | %>
-      <li><%= link_to category.name, category_path( category ) %></li>
-    <% end %>
-  </ul>
-</div>
 
 <%= edit_destroy_links( @entry ) %>
