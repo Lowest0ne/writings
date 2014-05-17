@@ -2,6 +2,7 @@ Writings
 ========
 
 ![codeship](https://www.codeship.io/projects/de1abb60-c02b-0131-4d22-1a54e49bcc8d/status)
+[![Coverage Status](https://coveralls.io/repos/Lowest0ne/writings/badge.png)](https://coveralls.io/r/Lowest0ne/writings)
 
 This application allows for the creation of book like collections.  Each book
 contains entries, which may be letters, poems, stories, or some other type of writing.

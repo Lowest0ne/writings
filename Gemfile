@@ -48,3 +48,5 @@ gem 'bourbon'
 gem 'neat'
 
 gem 'rails_12factor', group: :production
+
+gem 'coveralls', require: false

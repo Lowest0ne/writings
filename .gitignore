@@ -20,3 +20,6 @@
 
 # Ignore Secret file
 /.make_secret
+
+# Ignore coverall folder
+/coverage/
