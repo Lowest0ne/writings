@@ -1,0 +1,7 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= f.email_field :email, label: false, placeholder: :email, required: true, autofocus: true %>
+  <%= f.password_field :password, label: false, placeholder: :password, required: true, autocomplete: "off" %>
+  <%= f.submit "Sign in" %>
+<% end %>
+
+<%= render "admins/shared/links" %>
