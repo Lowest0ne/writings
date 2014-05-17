@@ -14,10 +14,13 @@ FactoryGirl.define do
     book
     title "Factory Title"
     contents "Factory Contents"
+    year 2000
+    month 1
+    day 1
   end
 
   factory :category do
-    name 'Factory Name'
+    sequence( :name ){ |n| "Category ##{n}" }
   end
 
   factory :entry_category do
