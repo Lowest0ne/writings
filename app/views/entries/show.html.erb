@@ -7,6 +7,7 @@
 </div>
 
 <ul>
+  <li><%= link_to "Add another entry", new_book_entry_path( @entry.book ) %>
   <li><%= link_to "Back to #{@entry.book.title}", book_path( @entry.book ) %></li>
   <% @categories.each do | category | %>
     <li><%= link_to "Other #{ pluralize( 2, category.name ).split()[1..-1].join(' ') }", category_path( category ) %></li>
